@@ -1,22 +1,40 @@
-const button = document.querySelector(".button");
-const pokemon = document.querySelector('.pokemon');
-const pokemonName = document.querySelector('.h1');
-const pokemonImg = document.querySelector(".pokemon-img");
-const pokemonStatus= document.querySelector(".status")
+let slides = document.getElementsByClassName("slider__slide");
+
+let navlinks = document.getElementsByClassName("slider__navlink");
+
+let currentSlide = 0;
 
 
-const url = "https://pokeapi.co/api/v2/pokemon/"
+document.getElementById("nav-button--next").addEventListener("click", () => {
+  changeSlide(currentSlide + 1);
+});
+
+document.getElementById("nav-button--prev").addEventListener("click", () => {
+  changeSlide(currentSlide - 1)
+});
 
 
-  fetch(url)
-    .then((res) => res.json())
-    .then(result => {
-      console.log(result)
+
+
+
+
+
+function fetchPokemon(id) {
+  fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data.sprites.front_default);
     })
-    .catch((err) => {
-      console.log(`error: ${err}`);
-    });
+  
+}
 
+function fetchPokemons(number) {
+  for (let i = 1; i <= number; i++){
+    fetchPokemon(i);
+  }
+}
+  
+fetchPokemons(4);
 
 
   /* make sure API is working
