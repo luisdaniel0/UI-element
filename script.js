@@ -25,12 +25,13 @@ nextSlide.addEventListener("click", (event) => {
       let image = document.createElement('img')
       image.src = `${res[0].url}`
       body.appendChild(image)
-
-
-      
       
     });
 });
+
+
+
+
 
 /*
 function fetchPokemon(id) {
@@ -166,4 +167,4 @@ fetchPokemons(4);
 
 
 
-//catlab for ref img src// */
+//catlab for ref img src// */ 
