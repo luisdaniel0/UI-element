@@ -9,9 +9,38 @@ console.log(nextSlide)
 //prev slide button
 const prevSlide = document.querySelector(".btn-prev");
 
+
 let pictures = []
 
 let currentIndex = 0
+
+
+
+function prev() {
+  if (currentIndex != 0) {
+    
+    currentIndex -= 1;
+    console.log(currentIndex)
+    document.querySelector('img').src = pictures[currentIndex];
+
+  }
+
+}
+
+
+
+function next() {
+  if (pictures.length - 1===currentIndex) {
+    getPicture();
+
+  } else {
+    currentIndex += 1
+    document.querySelector('img').src = pictures[currentIndex];
+  }
+  
+
+
+}
 
 let getPicture = (event) => {
   fetch(url)
@@ -26,6 +55,9 @@ let getPicture = (event) => {
       }
       document.querySelector('img').src = pictures[currentIndex];
 
+
+
+
       // let currentImg = document.querySelector('img')
       // if (currentImg) {
       //   currentImg.remove();
@@ -39,7 +71,9 @@ let getPicture = (event) => {
     })
 }
 
-nextSlide.addEventListener("click", getPicture);
+nextSlide.addEventListener("click", next);
+
+prevSlide.addEventListener("click", prev);
 
   getPicture();
 

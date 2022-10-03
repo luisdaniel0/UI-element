@@ -46,6 +46,11 @@ body {
 
 
 .btn-next {
-  top: 100%;
-  right: 50%;
+  top: 50%;
+  right: 5%;
+}
+
+.btn-prev{
+  top: 50%;
+  left: 5%
 }
