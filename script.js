@@ -17,17 +17,24 @@ let getPicture = (event) => {
   fetch(url)
     .then((res) => res.json())
     .then((res) => {
-
-      console.log(res)
-      let currentImg = document.querySelector('img')
-      if (currentImg) {
-        currentImg.remove();
+      pictures.push(res[0].url)
+      console.log(pictures);
+      if (pictures.length === 1) {
+        currentIndex = 0;
+      } else {
+        currentIndex++
       }
+      document.querySelector('img').src = pictures[currentIndex];
 
-      let body = document.querySelector(".slide")
-      let image = document.createElement('img')
-      image.src = `${res[0].url}`
-      body.appendChild(image)
+      // let currentImg = document.querySelector('img')
+      // if (currentImg) {
+      //   currentImg.remove();
+      // }
+
+      // let body = document.querySelector(".slide")
+      // let image = document.createElement('img')
+      // image.src = `${res[0].url}`
+      // body.appendChild(image)
       
     })
 }
